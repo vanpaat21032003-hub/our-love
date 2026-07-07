@@ -8,26 +8,39 @@
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
 body{
 
-margin:0;
 height:100vh;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
-background:linear-gradient(135deg,#ff9ec4,#ffc1da,#ffd6e7);
-
-font-family:Arial,sans-serif;
-
 overflow:hidden;
+
+background:linear-gradient(-45deg,#ff9ec4,#ffc1da,#ffd6e7,#ffeef5);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 
 }
 
 .card{
+
+width:90%;
+max-width:420px;
 
 background:white;
 
@@ -37,21 +50,48 @@ border-radius:25px;
 
 text-align:center;
 
-box-shadow:0 10px 30px rgba(0,0,0,.2);
+box-shadow:0 15px 35px rgba(0,0,0,.15);
 
-width:350px;
+animation:zoom .7s;
+
+}
+
+@keyframes zoom{
+
+from{
+
+opacity:0;
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+transform:scale(1);
+
+}
 
 }
 
 h1{
 
-color:#ff3b7a;
+color:#ff3f7f;
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:18px;
+line-height:1.8;
+color:#444;
 
 }
 
 button{
 
-margin-top:20px;
+margin-top:30px;
 
 padding:15px 35px;
 
@@ -59,7 +99,7 @@ border:none;
 
 border-radius:50px;
 
-background:#ff3b7a;
+background:#ff3f7f;
 
 color:white;
 
@@ -75,17 +115,7 @@ button:hover{
 
 transform:scale(1.08);
 
-}
-
-#pesan{
-
-margin-top:25px;
-
-font-size:18px;
-
-color:#444;
-
-line-height:1.8;
+box-shadow:0 0 20px rgba(255,63,127,.5);
 
 }
 
@@ -93,13 +123,15 @@ line-height:1.8;
 
 position:absolute;
 
-font-size:25px;
+font-size:24px;
 
-animation:jatuh 4s linear forwards;
+animation:fall linear forwards;
+
+pointer-events:none;
 
 }
 
-@keyframes jatuh{
+@keyframes fall{
 
 0%{
 
@@ -127,57 +159,104 @@ opacity:0;
 
 <div class="card">
 
-<h1>❤️ Hai Meichelia ❤️</h1>
+<h1 id="judul">❤️ Hai Meichelia ❤️</h1>
 
-<p>Kita Ada Pesan ...</p>
+<p id="isi">
 
-<button onclick="mulai()">
+kt ada sesuatu...
 
-klik disini sayaang ❤️
+</p>
+
+<button id="btn" onclick="step1()">
+
+Buka ❤️
 
 </button>
-
-<div id="pesan"></div>
 
 </div>
 
 <script>
 
-function mulai(){
+function step1(){
 
-document.getElementById("pesan").innerHTML=`
+document.getElementById("judul").innerHTML="💌 Untukmu";
 
-<p>
+document.getElementById("isi").innerHTML=`
+Makasih neh cantiik so meluangkan waktu so buka ini link😊.<br><br>
 
-Hai Meichelia 🌸<br><br>
-
-semangat terus nehh sayang .<br>
-
-jangan kuat ovt kalo ada apa2 cerita langsung nehh😊.<br><br>
-
-🤗 Sayang Selaa ❤️
-
-</p>
-
+Masih ada pesan lehh.
 `;
+
+document.getElementById("btn").innerHTML="Lanjutkan 🌸";
+
+document.getElementById("btn").onclick=step2;
+
+}
+
+function step2(){
+
+document.getElementById("judul").innerHTML="❤️ Hai Meichelia ❤️";
+
+document.getElementById("isi").innerHTML=`
+Sela Jangan Lupa Senyum nehh Tiap Hari.<br><br>
+
+Kalo Ada Masalah Langsung Cerita Nehh Sayang
+Se Kurang Itu Ovt.<br><br>
+
+🤗 Sayaang Duluu Dang ❤️
+`;
+
+document.getElementById("btn").innerHTML="Sayang Duluu 🤗";
+
+document.getElementById("btn").onclick=step3;
+
+loveRain();
+
+}
+
+function step3(){
+
+document.getElementById("judul").innerHTML="🥰";
+
+document.getElementById("isi").innerHTML=`
+Makase neh So Klik Cantik.<br><br>
+
+Semoga Sela Senang Biar Cuma Halaman Sederhana. ❤️<br><br>
+
+Kt Senang Ada Baku Dapa Dengan Ngana Meiselaa Ratu Elisabeth Hantung...
+
+<b>Kita Senang Kenal Pa Selaa.</b>
+`;
+
+document.getElementById("btn").innerHTML="❤️ Selesai ❤️";
+
+document.getElementById("btn").disabled=true;
+
+loveRain();
+
+}
+
+function loveRain(){
 
 for(let i=0;i<40;i++){
 
-let h=document.createElement("div");
+let heart=document.createElement("div");
 
-h.innerHTML="❤️";
+heart.className="heart";
 
-h.className="heart";
+heart.innerHTML="❤️";
 
-h.style.left=Math.random()*100+"vw";
+heart.style.left=Math.random()*100+"vw";
 
-h.style.animationDuration=(2+Math.random()*3)+"s";
+heart.style.animationDuration=(2+Math.random()*3)+"s";
 
-document.body.appendChild(h);
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(heart);
 
 setTimeout(()=>{
 
-h.remove();
+heart.remove();
 
 },5000);
 
