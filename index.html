@@ -1,22 +1,160 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Our Love ❤️</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untukmu ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#9333ea);
+
+background-size:300% 300%;
+
+animation:bg 12s ease infinite;
+
+font-family:Arial,sans-serif;
+
+overflow:hidden;
+
+color:white;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
+
+.card{
+
+text-align:center;
+
+padding:50px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+box-shadow:0 0 40px rgba(0,0,0,.3);
+
+max-width:700px;
+
+width:90%;
+
+}
+
+h1{
+
+font-size:50px;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:22px;
+
+line-height:1.8;
+
+margin-bottom:35px;
+
+}
+
+button{
+
+padding:18px 40px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:20px;
+
+cursor:pointer;
+
+background:#ff4d88;
+
+color:white;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 20px #ff4d88;
+
+}
+
+</style>
+
 </head>
 
-<body style="background:pink;text-align:center;font-family:Arial;margin-top:100px;">
+<body>
+
+<div class="card">
 
 <h1>❤️ Hai Sayang ❤️</h1>
 
-<h2>Terima kasih sudah hadir di hidupku.</h2>
-
 <p>
-Aku mungkin bukan yang sempurna,
-tapi aku akan selalu berusaha menjadi yang terbaik untukmu.
+
+Website ini aku buat khusus untukmu.
+
+Mungkin sederhana.
+
+Tetapi setiap kata di dalamnya berasal dari hati.
+
 </p>
 
-<h1>🌹 I Love You 🌹</h1>
+<button onclick="lanjut()">
+
+Buka Pesan
+
+</button>
+
+</div>
+
+<script>
+
+function lanjut(){
+
+alert("Perjalanan kita dimulai dari sini ❤️");
+
+}
+
+</script>
 
 </body>
+
 </html>
